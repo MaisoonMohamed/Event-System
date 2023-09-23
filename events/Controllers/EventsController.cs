@@ -1,5 +1,6 @@
 ﻿using events.Database;
 using events.Models;
+using events.Tables;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
@@ -22,19 +23,19 @@ namespace events.Controllers
         }
 
         [HttpPost]
-        public string CreateEvent(Event newevent)
+        public bool CreateEvent(Event newevent)
         {
             var existingEvent = eventcontext.Events.FirstOrDefault(e => e.Owner == newevent.Owner);
             if (existingEvent != null)
             {
-                return "already exist";
+                return false;
             }
 
 
             eventcontext.Events.Add(newevent);
             eventcontext.SaveChanges();
 
-            return "true";
+            return true;
         }
 
         [HttpGet]
