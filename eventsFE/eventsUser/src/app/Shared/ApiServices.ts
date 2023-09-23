@@ -13,7 +13,7 @@ export class ApiServices {
 
   public createEvent(eventdto: EventDto): Observable<any> {
     debugger
-    const url = "/api/events/";
+    const url = "/api/events";
     return this.http.post<any>(url, eventdto);
   }
 }
