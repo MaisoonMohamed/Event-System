@@ -1,0 +1,26 @@
+<body>
+<div class="main-block">
+<form action="/" >
+    <div class="title">
+    
+      <h2>Create Event</h2>
+    </div>
+   <div class="info">
+    <div class="fname" >
+        <input  (ngModel)="eventDto.owner" type="text" placeholder="Owner Name" />
+    </div>
+    <div class="row" >
+        <input type="date" value="dateTime" (ngModel)="eventDto.date"  placeholder="dateTime"/>
+    </div>
+    <div class="row" >
+        <input  (ngModel)="eventDto.title" type="text" placeholder="Title" />
+    </div>
+    <div class="row" >
+        <input  (ngModel)="eventDto.details" type="text" placeholder="Details" />
+    </div>
+
+   </div>
+   <button type="submit" href="/" (onclick)="CreateEvent()">Submit</button>
+</form>
+</div>
+</body>
