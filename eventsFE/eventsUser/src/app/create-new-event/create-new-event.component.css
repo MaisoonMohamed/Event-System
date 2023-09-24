@@ -63,16 +63,8 @@ html, body {
     background: black; 
     border: none;
     }
-    .checkbox input {
-    margin: 0 10px 0 0;
-    vertical-align: middle;
-    }
-    .checkbox a {
-    color: #26a9e0;
-    }
-    .checkbox a:hover {
-    color: #85d6de;
-    }
+    
+    
     .btn-item, button {
     padding: 10px 5px;
     margin-top: 20px;
@@ -89,10 +81,36 @@ html, body {
     margin: 20px 5px 0;
     }
     button {
-    width: 100%;
+    
+    background-color: rgb(121, 214, 121);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+      
     }
+    .button1 {
+    
+        background-color: rgb(121, 214, 121);
+        border: none;
+        color: white;
+        padding: 32px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        height: 500px;
+          
+        }
     button:hover, .btn-item:hover {
-    background: #85d6de;
+    background: lightgray;
     }
     @media (min-width: 568px) {
     html, body {

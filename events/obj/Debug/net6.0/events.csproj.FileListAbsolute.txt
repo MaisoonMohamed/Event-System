@@ -85,3 +85,5 @@ D:\Projects\events\events\obj\Debug\net6.0\refint\events.dll
 D:\Projects\events\events\obj\Debug\net6.0\events.pdb
 D:\Projects\events\events\obj\Debug\net6.0\events.genruntimeconfig.cache
 D:\Projects\events\events\obj\Debug\net6.0\ref\events.dll
+D:\Projects\Events\events\obj\Debug\net6.0\events.RazorAssemblyInfo.cache
+D:\Projects\Events\events\obj\Debug\net6.0\events.RazorAssemblyInfo.cs
