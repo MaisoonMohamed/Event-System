@@ -1,26 +1,33 @@
 <body>
 <div class="main-block">
-<form action="/" >
+<form #eventform="ngForm" action="/"   (ngSubmit)="isValidForm();"  >
     <div class="title">
     
-      <h2>Create Event</h2>
+      <h2>{{updateclicked? 'Update Event' : 'Create Event'}}</h2>
     </div>
    <div class="info">
     <div class="fname" >
-        <input  (ngModel)="eventDto.owner" type="text" placeholder="Owner Name" />
+        <input type="text" [(ngModel)]="eventDto.owner"  placeholder="Owner Name" name="owner" required/>
     </div>
     <div class="row" >
-        <input type="date" value="dateTime" (ngModel)="eventDto.date"  placeholder="dateTime"/>
+        <input type="date" value="dateTime" [(ngModel)]="this.eventDto.date"  placeholder="dateTime" name="date" required/>
     </div>
     <div class="row" >
-        <input  (ngModel)="eventDto.title" type="text" placeholder="Title" />
+        <input  [(ngModel)]="eventDto.title" type="text" placeholder="Title" name="title" required/>
     </div>
     <div class="row" >
-        <input  (ngModel)="eventDto.details" type="text" placeholder="Details" />
+        <input  [(ngModel)]="eventDto.details" type="text" placeholder="Details" name="details" required/>
     </div>
 
    </div>
-   <button type="submit" href="/" (onclick)="CreateEvent()">Submit</button>
+   <button  type="submit"  href="/" >{{updateclicked? 'Update Event' : 'Create Event'}}</button>
+  
 </form>
+
 </div>
+
+<button type="button1" [routerLink]="['/get-event']">Show Events</button>
+
+
+
 </body>

@@ -1,5 +1,6 @@
-export class EventDto {
-  owner?: number;
+export interface EventDto {
+  id:number;
+  owner?: string;
   date?:Date;
   title?:string;
   details?:string;

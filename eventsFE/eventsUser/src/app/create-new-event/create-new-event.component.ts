@@ -1,28 +1,72 @@
-import { Component,Input } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component,Input,OnInit, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { EventDto } from '../Models/EventDto.cs';
 import { ApiServices } from '../Shared/ApiServices';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-create-new-event',
   templateUrl: './create-new-event.component.html',
   styleUrls: ['./create-new-event.component.css']
 })
-export class CreateNewEventComponent {
-  @Input() eventDto!:EventDto;
-  
+export class CreateNewEventComponent implements OnInit {
+  @Input('eventDto') eventDto:EventDto={} as EventDto;
+  @Input('updateclicked') updateclicked:boolean=false;
+  @Input('eventidupdated') eventidupdated:number=0;
+  @Input('events') events:EventDto[]=[];
+  @ViewChild('eventform') form!:NgForm;
+  eventmodel:EventDto={} as EventDto;
   dateTime = new Date();
   output:boolean=false;
- constructor(private apiservices:ApiServices)
+ constructor(private apiservices:ApiServices,private httpClient:HttpClient)
  {
   
  }
+
+ ngOnInit()
+ {
+
+ }
+ ngOnChanges()
+ {
+ 
+ }
+ 
+ 
   CreateEvent()
   {
-    debugger
-   
-    this.apiservices.createEvent(this.eventDto).subscribe((response: any) => {
-      return response;
-    });
+    debugger;
+    if(!this.updateclicked){
+    
   
+
+    this.apiservices.createEvent(this.eventDto).subscribe((response) => {
+      if(response==null)
+      {
+        alert("Owner already has an event");
+      }
+      else{
+      alert("Event Created successfully");}
+    });
+  }
+  else{
+    this.apiservices.UpdateEvent(this.eventidupdated,this.eventDto).subscribe((response)=>{
+      alert("updated");
+    })
+  }
+
+  
+  }
+
+  isValidForm()
+  {
+    if(this.eventDto.date && this.eventDto.owner && this.eventDto.details&& this.eventDto.title)
+    {
+      
+      this.CreateEvent()
+      return true;
+    }
+    alert("Please fill in the form")
+    
+    return false;
   }
 }

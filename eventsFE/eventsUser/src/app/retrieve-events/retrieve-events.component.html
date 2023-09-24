@@ -1,0 +1,31 @@
+<div class="mb-5 mt-3">
+   
+    <table style="width:100%">
+        <tr>
+            <th>Owner</th>
+            <th>Date</th>
+            <th>Title</th>
+            <th>Details</th>
+            <th></th>
+        </tr>
+        
+       
+            <tr *ngFor="let event of events">
+               
+               <td><span>{{event.owner}}</span></td>
+               <td><span>{{event.date}}</span></td>
+               <td><span>{{event.title}}</span></td>
+               <td><span>{{event.details}}</span></td>
+               <td><button type="button" class="button" (click)="this.updateclick=true;this.eventid=event.id" >update</button>
+               <button type="button" class="button3" (click)="DeleteEvent(event.id)">delete</button></td> 
+              
+            </tr>
+            
+            
+    </table>
+    <app-create-new-event *ngIf="updateclick" [updateclicked]="this.updateclick"  [eventidupdated]="this.eventid"
+            [events]="this.events"></app-create-new-event>
+    </div>
+
+
+
