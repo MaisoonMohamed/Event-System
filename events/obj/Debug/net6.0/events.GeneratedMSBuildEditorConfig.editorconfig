@@ -15,3 +15,7 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = D:\Projects\events\events
 build_property._RazorSourceGeneratorDebug = 
+
+[D:/Projects/events/events/Views/createevent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3JlYXRlZXZlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
