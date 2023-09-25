@@ -1,6 +1,6 @@
 <body>
 <div class="main-block">
-<form #eventform="ngForm" action="/"   (ngSubmit)="isValidForm();"  >
+<form #eventform="ngForm" action="/"   (ngSubmit)="isValidForm();submited=true"  >
     <div class="title">
     
       <h2>{{updateclicked? 'Update Event' : 'Create Event'}}</h2>
@@ -27,7 +27,6 @@
 </div>
 
 <button type="button1" [routerLink]="['/get-event']">Show Events</button>
-
 
 
 </body>

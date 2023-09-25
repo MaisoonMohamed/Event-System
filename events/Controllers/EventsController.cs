@@ -56,26 +56,19 @@ namespace events.Controllers
 
         [HttpPut]
         [Route("update/{id}")]
-        public IActionResult UpdateEvent(int id, Event newevent) {
-            if (id != newevent.Id)
-            {
-                return BadRequest();
-            }
+        public Event UpdateEvent(int id, Event newevent) {
+           
             var existingevent = eventcontext.Events.FirstOrDefault(o => o.Id == id);
-            if(existingevent != null)
+            var existingEventowner = eventcontext.Events.FirstOrDefault(e => e.Owner == newevent.Owner);
+            if (existingevent != null&& existingEventowner==null)
             {
                 eventcontext.Entry(existingevent).CurrentValues.SetValues(newevent);
                 eventcontext.SaveChanges();
-                return NoContent();
+                return  newevent;
             }
-          
-            
-                return NotFound();
-            
-           
 
 
-        }
+            return null;   }
 
         [HttpDelete]
         [Route("delete/{id}")]
