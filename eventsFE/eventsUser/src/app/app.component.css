@@ -1,0 +1,47 @@
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+   position: center;
+  }
+  .main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    padding: 100px;
+    padding-bottom: 200px;
+    background: rgba(0, 0, 0, 0.5); 
+    width: 1257px;
+    
+    background-position-x: right 500px bottom 1000px;
+    
+    }
+.button3 {background-color: #4CAF50;
+
+    
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;} /* Red */
+
+
+    .title {
+        display: flex;
+        align-items: 100px;
+       
+        margin-bottom: 20px;
+        }

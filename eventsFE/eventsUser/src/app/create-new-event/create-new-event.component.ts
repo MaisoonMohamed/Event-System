@@ -12,11 +12,12 @@ export class CreateNewEventComponent implements OnInit {
   @Input('eventDto') eventDto:EventDto={} as EventDto;
   @Input('updateclicked') updateclicked:boolean=false;
   @Input('eventidupdated') eventidupdated:number=0;
-  @Input('events') events:EventDto[]=[];
+  
   @ViewChild('eventform') form!:NgForm;
   eventmodel:EventDto={} as EventDto;
   dateTime = new Date();
   output:boolean=false;
+  submited:boolean=false;
  constructor(private apiservices:ApiServices,private httpClient:HttpClient)
  {
   
@@ -36,9 +37,6 @@ export class CreateNewEventComponent implements OnInit {
   {
     debugger;
     if(!this.updateclicked){
-    
-  
-
     this.apiservices.createEvent(this.eventDto).subscribe((response) => {
       if(response==null)
       {
@@ -49,9 +47,22 @@ export class CreateNewEventComponent implements OnInit {
     });
   }
   else{
-    this.apiservices.UpdateEvent(this.eventidupdated,this.eventDto).subscribe((response)=>{
-      alert("updated");
-    })
+
+    
+    this.eventmodel={
+      id:this.eventidupdated,
+      owner:this.eventDto.owner,
+      date:this.eventDto.date,
+      title:this.eventDto.title,
+      details:this.eventDto.details
+    }
+    this.apiservices.UpdateEvent(this.eventidupdated,this.eventmodel).subscribe((response)=>{
+      if(response==null)
+      {
+        alert("Owner already has an event");
+      }else{
+      alert("updated successfully");
+  }})
   }
 
   
